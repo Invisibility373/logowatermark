@@ -1,0 +1,276 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+if not game.Players.LocalPlayer.PlayerGui:FindFirstChild("logo") then
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name="logo"
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local frame2 = Instance.new("Frame")
+local ImageButton = Instance.new("ImageButton")
+local Main = Instance.new("ImageLabel")
+local Main2 = Instance.new("ImageLabel")
+local Ring = Instance.new("ImageLabel")
+local Orbit = Instance.new("ImageLabel")
+
+-- Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(170, 0, 0)
+Frame.Position = UDim2.new(0.071895428, 0, 0.852999985, 0)
+Frame.Size = UDim2.new(0, 262, 0, 100)
+Frame.Visible = false
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0305343512, 0, 0.119999997, 0)
+TextLabel.Size = UDim2.new(0, 246, 0, 76)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Welcome to [Jupith]! Created by UnSolved and epik. Use the executor for execution."
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 21
+TextLabel.TextWrapped = true
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel.TextYAlignment = Enum.TextYAlignment.Top
+
+frame2.Name = "frame2"
+frame2.Parent = ScreenGui
+frame2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+frame2.BackgroundTransparency = 1
+frame2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+frame2.BorderSizePixel = 0
+frame2.Position = UDim2.new(0, 0, 0.852999985, 0)
+frame2.Size = UDim2.new(0, 100, 0, 100)
+
+ImageButton.Parent = frame2
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BackgroundTransparency = 1
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.219999999, 0, 0.219999999, 0)
+ImageButton.Size = UDim2.new(0, 56, 0, 56)
+ImageButton.Image = "http://www.roblox.com/asset/?id=114386114700618"
+
+Main.Name = "Main"
+Main.Parent = frame2
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BackgroundTransparency = 1
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Size = UDim2.new(0, 99, 0, 100)
+
+Main2.Name = "Main2"
+Main2.Parent = Main
+Main2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main2.BackgroundTransparency = 1
+Main2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main2.BorderSizePixel = 0
+Main2.Size = UDim2.new(0, 99, 0, 100)
+Main2.ImageTransparency = 1
+
+Ring.Name = "Ring"
+Ring.Parent = Main
+Ring.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Ring.BackgroundTransparency = 1
+Ring.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Ring.Size = UDim2.new(1, 0, 1, 0)
+Ring.Image = "rbxassetid://129625099337948"
+
+Orbit.Name = "Orbit"
+Orbit.Parent = Main
+Orbit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Orbit.BackgroundTransparency = 1
+Orbit.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Orbit.Size = UDim2.new(0.170000002, 0, 0.170000002, 0)
+Orbit.ZIndex = 2
+Orbit.Image = "rbxassetid://12892698158"
+
+-- Scripts:
+
+local function UJLPT_fake_script()
+	local script = Instance.new('LocalScript', TextLabel)
+
+	local textLabel = script.Parent
+	textLabel.RichText = true
+
+	local originalText = "Welcome to [Jupith]! Created by UnSolved and epik. Use the executor for execution."
+
+	local function applyColorToWord(word, color)
+		local r = math.floor(color.R * 255)
+		local g = math.floor(color.G * 255)
+		local b = math.floor(color.B * 255)
+		return `<font color="rgb({r},{g},{b})">{word}</font>`
+	end
+
+	local colors = {
+		Color3.new(1, 0, 0), -- Red
+		Color3.new(0, 1, 0), -- Green
+		Color3.new(0, 0, 1), -- Blue
+	}
+
+	local currentIndex = 1
+	while true do
+		local color = colors[currentIndex]
+		local coloredWord = applyColorToWord("[Jupith]", color)
+		textLabel.Text = originalText:gsub("%[Jupith%]", coloredWord)
+
+		currentIndex += 1
+		if currentIndex > #colors then
+			currentIndex = 1
+		end
+		wait(0.5)
+	end
+end
+coroutine.wrap(UJLPT_fake_script)()
+
+local function CVMGG_fake_script()
+	local script = Instance.new('LocalScript', ImageButton)
+
+	local cali = script.Parent
+	local text = script.Parent.Parent.Parent:FindFirstChild("Frame")
+	local isVisible = true
+
+	cali.MouseButton1Click:Connect(function()
+		isVisible = not isVisible
+		text.Visible = isVisible
+	end)
+end
+coroutine.wrap(CVMGG_fake_script)()
+
+local function BGHD_fake_script()
+	local script = Instance.new('LocalScript', Main)
+
+	local TweenService = game:GetService("TweenService")
+	local imageLabel = script.Parent
+
+	imageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+	imageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+	imageLabel.Rotation = 0
+
+	local tweenInfo = TweenInfo.new(
+		5,
+		Enum.EasingStyle.Linear,
+		Enum.EasingDirection.InOut,
+		-1,
+		false
+	)
+
+	local tween = TweenService:Create(imageLabel, tweenInfo, {Rotation = 360})
+	tween:Play()
+end
+coroutine.wrap(BGHD_fake_script)()
+
+local function DTNJ_fake_script()
+	local script = Instance.new('LocalScript', Main2)
+
+	local TweenService = game:GetService("TweenService")
+	local imageLabel = script.Parent
+
+	imageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+	imageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+	imageLabel.Rotation = 0
+
+	local tweenInfo = TweenInfo.new(
+		5,
+		Enum.EasingStyle.Linear,
+		Enum.EasingDirection.InOut,
+		-1,
+		false
+	)
+
+	local tween = TweenService:Create(imageLabel, tweenInfo, {Rotation = 360})
+	tween:Play()
+end
+coroutine.wrap(DTNJ_fake_script)()
+
+local function KNQKMSE_fake_script()
+	local script = Instance.new('LocalScript', frame2)
+
+	local Main = script.Parent.Main
+	local Main2 = Main.Main2
+	local Orbit = Main.Orbit
+	local Ring = Main.Ring
+
+	local RS = game:GetService("RunService").Heartbeat
+	local Tween = game:GetService("TweenService")
+	local WaitTime = 0.25
+	local LoadInfo = TweenInfo.new(WaitTime, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0)
+	local FlashInfo = TweenInfo.new(WaitTime, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 1, true, 0)
+	local hk = Main.AbsoluteSize.X / 2
+	local MainSize = Main.AbsoluteSize.X
+	local ls = Orbit.AbsoluteSize.X / 2
+	local r = hk
+	local theta = 0
+	local step = (2 * math.pi) / 450
+	local rotvel = 0.35
+	local StepInstance = Instance.new("NumberValue")
+	local RotInstance = Instance.new("NumberValue")
+
+	StepInstance.Changed:Connect(function()
+		step = StepInstance.Value
+	end)
+
+	RotInstance.Changed:Connect(function()
+		rotvel = RotInstance.Value
+	end)
+
+	local Modes = {
+		Tween:Create(Main2, LoadInfo, {ImageTransparency = 0.5}),
+		Tween:Create(Main2, LoadInfo, {ImageTransparency = 1}),
+		Tween:Create(Main2, FlashInfo, {ImageTransparency = 0}),
+		Tween:Create(StepInstance, LoadInfo, {Value = (2 * math.pi) / 180}),
+		Tween:Create(StepInstance, LoadInfo, {Value = (2 * math.pi) / 450}),
+		Tween:Create(RotInstance, LoadInfo, {Value = 1}),
+		Tween:Create(RotInstance, LoadInfo, {Value = 0.35}),
+	}
+
+	Modes[2].Completed:Connect(function()
+		Modes[3]:Play()
+	end)
+
+	local function ScriptLoading()
+		Modes[6]:Play()
+		Modes[4]:Play()
+		Modes[1]:Play()
+	end
+
+	local function ScriptDone()
+		Modes[2]:Play()
+		Modes[5]:Play()
+		Modes[7]:Play()
+	end
+
+	spawn(function()
+		local hi = script.Parent.Main
+
+		game:GetService("Players").LocalPlayer.Chatted:Connect(function(agg)
+			pcall(function()
+				if agg == "/e hidemeh" then
+					hi.Visible = not hi.Visible
+				end
+			end)
+		end)
+	end)
+
+	script.Parent.olleH.Event:Connect(function(a)
+		if a then ScriptLoading() else ScriptDone() end
+	end)
+
+	while RS:wait() do
+		theta = theta < 360 and theta + step or 0
+		local x = (hk + r * math.cos(theta) - ls)
+		local y = (hk + r * math.sin(theta) - ls)
+		Orbit.Position = UDim2.new(x / MainSize, 0, y / MainSize, 0)
+		Ring.Rotation = Ring.Rotation < 360 and Ring.Rotation + rotvel or 0
+		RS:wait()
+	end
+end
+coroutine.wrap(KNQKMSE_fake_script)()
+end
