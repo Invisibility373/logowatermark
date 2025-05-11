@@ -1,126 +1,245 @@
--- Instances
-local G2L = {}
+if not game.Players.LocalPlayer.PlayerGui:FindFirstChild("logo") then
 
--- Main GUI
-G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
-G2L["1"].Name = "logo"
-G2L["1"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-G2L["1"].ResetOnSpawn = false
 
--- Main container
-G2L["2"] = Instance.new("Frame", G2L["1"]) -- Use Frame instead of GuiMain for clarity
-G2L["2"].DisplayOrder = 999
-G2L["2"].ResetOnSpawn = false
-G2L["2"].Name = "datag2"
-G2L["2"].Size = UDim2.new(1, 0, 1, 0)  -- Take up the whole screen for visibility
-G2L["2"].BackgroundTransparency = 1  -- Make sure it's transparent
 
--- Main image
-G2L["3"] = Instance.new("ImageLabel", G2L["2"])
-G2L["3"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-G2L["3"].Image = "rbxassetid://19006393185"
-G2L["3"].Size = UDim2.new(0, 100, 0, 100)
-G2L["3"].BorderColor3 = Color3.fromRGB(28, 43, 54)
-G2L["3"].BackgroundTransparency = 1
-G2L["3"].Name = "Main"
-G2L["3"].Position = UDim2.new(0.5, -50, 0.5, -50)  -- Centered position
+-- Instances: 9 | Scripts: 2 | Modules: 0 | Tags: 0
+local G2L = {};
 
--- Orbit image
-G2L["4"] = Instance.new("ImageLabel", G2L["3"])
-G2L["4"].ZIndex = 2
-G2L["4"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-G2L["4"].Image = "rbxassetid://5067913049"
-G2L["4"].Size = UDim2.new(0.21, 0, 0.21, 0)
-G2L["4"].BorderColor3 = Color3.fromRGB(28, 43, 54)
-G2L["4"].BackgroundTransparency = 1
-G2L["4"].Name = "Orbit"
+-- StarterGui.logo
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["Name"] = [[logo]];
+G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["1"]["ResetOnSpawn"] = false;
 
--- Fading effect
-G2L["5"] = Instance.new("ImageLabel", G2L["3"])
-G2L["5"].ZIndex = 3
-G2L["5"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-G2L["5"].ImageTransparency = 1
-G2L["5"].Image = "rbxassetid://7102276469"
-G2L["5"].Size = UDim2.new(1, 0, 1, 0)
-G2L["5"].BorderColor3 = Color3.fromRGB(28, 43, 54)
-G2L["5"].BackgroundTransparency = 1
-G2L["5"].Name = "Main2"
 
--- Ring image
-G2L["7"] = Instance.new("ImageLabel", G2L["3"])
-G2L["7"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-G2L["7"].Image = "rbxassetid://5067913049"
-G2L["7"].Size = UDim2.new(1, 0, 1, 0)
-G2L["7"].BorderColor3 = Color3.fromRGB(28, 43, 54)
-G2L["7"].BackgroundTransparency = 1
-G2L["7"].Name = "Ring"
+-- StarterGui.logo.datag2
+G2L["2"] = Instance.new("GuiMain", G2L["1"]);
+G2L["2"]["DisplayOrder"] = 999;
+G2L["2"]["ResetOnSpawn"] = false;
+G2L["2"]["Name"] = [[datag2]];
 
--- Event and control
-G2L["9"] = Instance.new("BindableEvent", G2L["2"])
-G2L["9"].Name = "olleH"
 
--- Image Cycling Script
-local cyclingScript = Instance.new("LocalScript", G2L["3"])
-cyclingScript.Source = [[
-local imageList = {
-	"rbxassetid://96074633517213",
-	"rbxassetid://80954504849728",
-	-- trimmed for brevity, use full list
-	"rbxassetid://108738367149346"
-}
-while true do
-	for _, imageId in ipairs(imageList) do
-		script.Parent.Image = imageId
-		wait(2) -- Change image every 2 seconds
+-- StarterGui.logo.datag2.Main
+G2L["3"] = Instance.new("ImageLabel", G2L["2"]);
+G2L["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+-- [ERROR] cannot convert ImageContent, please report to "https://github.com/uniquadev/GuiToLuaConverter/issues"
+G2L["3"]["Image"] = [[rbxassetid://19006393185]];
+G2L["3"]["Size"] = UDim2.new(0, 100, 0, 100);
+G2L["3"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
+G2L["3"]["BackgroundTransparency"] = 1;
+G2L["3"]["Name"] = [[Main]];
+G2L["3"]["Position"] = UDim2.new(0.5, -2000, 0.5, -50);
+
+
+-- StarterGui.logo.datag2.Main.Orbit
+G2L["4"] = Instance.new("ImageLabel", G2L["3"]);
+G2L["4"]["ZIndex"] = 2;
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+-- [ERROR] cannot convert ImageContent, please report to "https://github.com/uniquadev/GuiToLuaConverter/issues"
+G2L["4"]["Image"] = [[rbxassetid://5067913049]];
+G2L["4"]["Size"] = UDim2.new(0.21, 0, 0.21, 0);
+G2L["4"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
+G2L["4"]["BackgroundTransparency"] = 1;
+G2L["4"]["Name"] = [[Orbit]];
+
+
+-- StarterGui.logo.datag2.Main.Main2
+G2L["5"] = Instance.new("ImageLabel", G2L["3"]);
+G2L["5"]["ZIndex"] = 3;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5"]["ImageTransparency"] = 1;
+-- [ERROR] cannot convert ImageContent, please report to "https://github.com/uniquadev/GuiToLuaConverter/issues"
+G2L["5"]["Image"] = [[rbxassetid://7102276469]];
+G2L["5"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["5"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
+G2L["5"]["BackgroundTransparency"] = 1;
+G2L["5"]["Name"] = [[Main2]];
+
+
+-- StarterGui.logo.datag2.Main.LocalScript
+G2L["6"] = Instance.new("LocalScript", G2L["3"]);
+
+
+
+-- StarterGui.logo.datag2.Main.Ring
+G2L["7"] = Instance.new("ImageLabel", G2L["3"]);
+G2L["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+-- [ERROR] cannot convert ImageContent, please report to "https://github.com/uniquadev/GuiToLuaConverter/issues"
+G2L["7"]["Image"] = [[rbxassetid://5067913049]];
+G2L["7"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["7"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
+G2L["7"]["BackgroundTransparency"] = 1;
+G2L["7"]["Name"] = [[Ring]];
+
+
+-- StarterGui.logo.datag2.Orbi
+G2L["8"] = Instance.new("LocalScript", G2L["2"]);
+G2L["8"]["Name"] = [[Orbi]];
+
+
+-- StarterGui.logo.datag2.olleH
+G2L["9"] = Instance.new("BindableEvent", G2L["2"]);
+G2L["9"]["Name"] = [[olleH]];
+
+
+-- StarterGui.logo.datag2.Main.LocalScript
+local function C_6()
+	local script = G2L["6"];
+	-- List of image asset IDs
+	local imageList = {
+		"rbxassetid://96074633517213",
+		"rbxassetid://80954504849728",
+		"rbxassetid://140387101911093",
+		"rbxassetid://94274894651129",
+		"rbxassetid://116487051971731",
+		"rbxassetid://123394588616652",
+		"rbxassetid://103554683042413",
+		"rbxassetid://75044526277536",
+		"rbxassetid://96527202591740",
+		"rbxassetid://108502258547518",
+		"rbxassetid://109320574254868",
+		"rbxassetid://102621951800499",
+		"rbxassetid://96834178746062",
+		"rbxassetid://117279473630305",
+		"rbxassetid://113232072548077",
+		"rbxassetid://112250424360014",
+		"rbxassetid://91446478867442",
+		"rbxassetid://72837393674999",
+		"rbxassetid://102621951800499",
+		"rbxassetid://104673492449806",
+		"rbxassetid://125255272542296",
+		"rbxassetid://96084153124764",
+		"rbxassetid://125874203472047",
+		"rbxassetid://118708478444720",
+		"rbxassetid://97384335361869",
+		"rbxassetid://105276965766869",
+		"rbxassetid://86773476626260",
+		"rbxassetid://71145421050464",
+		"rbxassetid://121713691845174",
+		"rbxassetid://122072379378190",
+		"rbxassetid://78390505377404",
+		"rbxassetid://85785907007203",
+		"rbxassetid://103306995766495",
+		"rbxassetid://129478308856623",
+		"rbxassetid://136493132355313",
+		"rbxassetid://87011212555330",
+		"rbxassetid://87464091384013",
+		"rbxassetid://88279710985036",
+		"rbxassetid://122606709317138",
+		"rbxassetid://104819344350354",
+		"rbxassetid://80844660111432",
+		"rbxassetid://107116880731350",
+		"rbxassetid://106058982800572",
+		"rbxassetid://123054447412189",
+		"rbxassetid://103380881857880",
+		"rbxassetid://120493307900711",
+		"rbxassetid://96918512431922",
+		"rbxassetid://116690169958073",
+		"rbxassetid://93271720144583",
+		"rbxassetid://76110422713904",
+		"rbxassetid://100795450344229",
+		"rbxassetid://132966122640437",
+		"rbxassetid://120280533225693",
+		"rbxassetid://108738367149346"
+	}
+
+	-- Infinite loop to cycle through the images
+	while true do
+		for _, imageId in ipairs(imageList) do
+			script.Parent.Image = imageId
+			wait(0) -- Wait for 0.3 seconds before changing to the next image
+		end
 	end
+
+end;
+task.spawn(C_6);
+-- StarterGui.logo.datag2.Orbi
+local function C_8()
+	local script = G2L["8"];
+	local Main = script.Parent.Main
+	local Main2 = Main.Main2
+	local Orbit = Main.Orbit
+	local Ring = Main.Ring
+
+	--Notice: This relies on the fact it will be a perfectly round icon.
+	local RS = game:GetService("RunService").Heartbeat
+	local Tween = game:GetService("TweenService")
+	local WaitTime = 0.25
+	local LoadInfo = TweenInfo.new(WaitTime,Enum.EasingStyle.Linear,Enum.EasingDirection.Out,0,false,0)
+	local FlashInfo = TweenInfo.new(WaitTime,Enum.EasingStyle.Linear,Enum.EasingDirection.Out,1,true,0)
+	local hk = Main.AbsoluteSize.X/2
+	local MainSize = Main.AbsoluteSize.X
+	local ls = Orbit.AbsoluteSize.X/2
+	local r = hk
+	local theta = 0
+	local step = (2*math.pi)/450
+	local rotvel = 0.35
+	local StepInstance = Instance.new("NumberValue")
+	local RotInstance = Instance.new("NumberValue")
+	StepInstance.Changed:Connect(function()
+		step = StepInstance.Value
+	end)
+	RotInstance.Changed:Connect(function()
+		rotvel = RotInstance.Value
+	end)
+
+	local Modes = {
+		--Main Image--
+		Tween:Create(Main2,LoadInfo,{ImageTransparency=0.5}), --Indicates script loading
+		Tween:Create(Main2,LoadInfo,{ImageTransparency=1}),   --Indicated script completed
+		Tween:Create(Main2,FlashInfo,{ImageTransparency=0}),   --Pulse effect for completed
+		--Step Tween--
+		Tween:Create(StepInstance,LoadInfo,{Value=(2*math.pi)/180}),
+		Tween:Create(StepInstance,LoadInfo,{Value=(2*math.pi)/450}),
+		--Rot Tween--
+		Tween:Create(RotInstance,LoadInfo,{Value=1}),
+		Tween:Create(RotInstance,LoadInfo,{Value=0.35}),
+	}
+	Modes[2].Completed:Connect(function()
+		Modes[3]:Play()
+	end)
+
+	local function ScriptLoading()
+		Modes[6]:Play()
+		Modes[4]:Play()
+		Modes[1]:Play()
+	end
+
+	local function ScriptDone()
+		Modes[2]:Play()
+		Modes[5]:Play()
+		Modes[7]:Play()
+	end
+	spawn(function()
+		local deb = false
+		local hi = script.Parent.Main
+		hi:TweenPosition(UDim2.new(0.5, -50,0.5, -50), Enum.EasingDirection.In)
+		wait'3'
+		hi:TweenPosition(UDim2.new(0, 12,1, -115), Enum.EasingDirection.Out)
+		game:GetService'Players'.LocalPlayer.Chatted:Connect(function(agg)
+			pcall(function()
+				if agg == '/e hidemeh' then
+					hi.Visible = not hi.Visible
+				end
+			end)
+		end)
+	end)
+	--DEMO CODE--
+	script.Parent.olleH.Event:Connect(function(a)
+		if a then ScriptLoading() else ScriptDone() end
+	end)
+	--DEMO CODE--
+
+	while RS:wait() do
+		theta = theta < 360 and theta + step or 0
+		local x = (hk + r * math.cos(theta) - ls)
+		local y = (hk + r * math.sin(theta) - ls)
+		Orbit.Position = UDim2.new(x/MainSize,0,y/MainSize,0)
+		Ring.Rotation = Ring.Rotation < 360 and Ring.Rotation + rotvel or 0
+		RS:wait()
+	end
+end;
+task.spawn(C_8);
+
+return G2L["1"], require;
 end
-]]
-
--- Orbit Movement Script
-local orbitScript = Instance.new("LocalScript", G2L["2"])
-orbitScript.Name = "Orbi"
-orbitScript.Source = [[
-local Main = script.Parent.Main
-local Orbit = Main.Orbit
-local Ring = Main.Ring
-local Main2 = Main.Main2
-local RS = game:GetService("RunService").Heartbeat
-local Tween = game:GetService("TweenService")
-local WaitTime = 0.25
-
-local LoadInfo = TweenInfo.new(WaitTime, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
-local FlashInfo = TweenInfo.new(WaitTime, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 1, true)
-
-local Modes = {
-	Tween:Create(Main2, LoadInfo, {ImageTransparency = 0.5}),
-	Tween:Create(Main2, LoadInfo, {ImageTransparency = 1}),
-	Tween:Create(Main2, FlashInfo, {ImageTransparency = 0}),
-}
-
-Modes[2].Completed:Connect(function() Modes[3]:Play() end)
-
-local function ScriptLoading()
-	Modes[1]:Play()
-end
-
-local function ScriptDone()
-	Modes[2]:Play()
-end
-
-script.Parent.olleH.Event:Connect(function(a)
-	if a then ScriptLoading() else ScriptDone() end
-end)
-
-local theta = 0
-local r = 100 -- Orbit radius
-
-while RS:Wait() do
-	theta = theta + 0.05
-	local x = r * math.cos(theta)
-	local y = r * math.sin(theta)
-	Orbit.Position = UDim2.new(0.5, x, 0.5, y)
-	Ring.Rotation = (Ring.Rotation + 0.1) % 360
-end
-]]
-
-return G2L["1"]
